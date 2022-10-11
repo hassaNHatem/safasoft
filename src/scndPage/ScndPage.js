@@ -24,7 +24,7 @@ function ScndPage() {
    </div>
    <div className='btns'>
         <Link to={'/'} className="btn"><button>Back</button></Link>
-        <Link to={'/scnd'} className="btn"><button>Next</button></Link></div>
+        <Link to={'/confirm'} className="btn"><button>Next</button></Link></div>
     </div>
   );
 }
