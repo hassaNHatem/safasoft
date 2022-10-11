@@ -1,0 +1,81 @@
+.scnd{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 40%;
+    margin: 0 auto;
+    justify-self: center;
+    height: auto;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.scnd h2{
+    color: #324356;
+    margin-bottom: 2%;
+    font-size: 35px;
+}
+.scnd-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+}
+
+.scnd-form input{
+    border: 1px solid #ebe9ea;
+    padding: 25px;
+    border-radius: 6px;
+    margin-bottom: 1%;
+}
+.country-city{
+    margin-bottom: 1%;
+    display: flex;
+    justify-content: space-between;
+}
+.scnd select{
+    border: 1px solid #ebe9ea;
+    width: 49%;
+    height: 67px;
+    border-radius: 6px;
+    padding: 25px;
+}
+.phone-numbers{
+    display: flex;
+    justify-content: space-between;
+}
+.phone-numbers input{
+    width: 49%;
+}
+.scnd .btns{
+align-self: flex-end;
+width: 50%;
+display: flex;
+}
+.scnd .btns .btn{
+    width: 70%;
+    align-self: flex-end;
+    padding: 15px;
+    margin-top: 2%;
+    background-color: #1777FB;
+    border: 1px solid transparent;
+    color: white;
+    border-radius: 8px;
+    margin-left: 2%;
+}
+.scnd .btns .btn:first-of-type{
+    width: 30%;
+    background-color: #FAFAFA;
+}
+.btns .btn button{
+    background-color: #1777FB;
+    border: none;
+    color: white;
+   
+}
+.btns .btn:first-of-type button{
+    background-color: #FAFAFA;
+    color: #B4B3B3;
+}
