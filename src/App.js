@@ -20,7 +20,7 @@ function App() {
   const [address , setAdress] = useState('')
   const [businessmail , setBusinessMail] = useState('')
   const [companyCountry , setCompanyCountry] = useState('')
-  const [city , setCity] = useState('city')
+  const [city , setCity] = useState('')
   const [comanyPhone1 , setCompanyPhone1] = useState('')
   const [comanyPhone2 , setCompanyPhone2] = useState('')
   const [password1Visable , setpassword1visable] = useState(false)
@@ -101,7 +101,7 @@ function App() {
       <Router>
         <Routes>
       <Route path="/" element={<FirstPage name={name} setName={setName} personalMail={personalMail} setPersonalMail={setPersonalMail} personalCountry={personalCountry} setPersonalCountry={setPersonalCountry} personalPhone={personalPhone} setPersonalPhone={setPersonalPhone} password={password} setPassword={setPassword} confrimPassword={confrimPassword} setConfirmPassword={setConfirmPassword} COUNTRIES={COUNTRIES} password1Visable={password1Visable} setpassword1visable={setpassword1visable} password2Visable={password2Visable} setpassword2visable={setpassword2visable} />} />
-      <Route path="/scnd" element={ <ScndPage  companyName={companyName} setCompanyName={setCompanyName} address={address} setAdress={setAdress} businessmail={businessmail} setBusinessMail={setBusinessMail} companyCountry={companyCountry}  setCompanyCountry={setCompanyCountry}/>}  city={city} setCity={setCity} comanyPhone1={comanyPhone1} setCompanyPhone1={setCompanyPhone1} comanyPhone2={comanyPhone2}/>
+      <Route path="/scnd" element={ <ScndPage  companyName={companyName} setCompanyName={setCompanyName} address={address} setAdress={setAdress} businessmail={businessmail} setBusinessMail={setBusinessMail} companyCountry={companyCountry}  setCompanyCountry={setCompanyCountry} city={city} setCity={setCity} comanyPhone1={comanyPhone1} setCompanyPhone1={setCompanyPhone1} comanyPhone2={comanyPhone2} setCompanyPhone2={setCompanyPhone2} COUNTRIES={COUNTRIES}/>}  />
       <Route path="/confirm" element={ <Confirm/>} />
       <Route path="/congrats" element={ <Congrats/>} />
       </Routes>

@@ -35,8 +35,8 @@ function FirstPage(props) {
         <select placeholder='country' value={props.personalCountry} onChange={(e)=>{props.setPersonalCountry(e.target.value)}} className={props.personalCountry===''?'errorinput':''}>
         <option value="" selected disabled hidden>Countries</option>
         {
-        props.COUNTRIES.map((el)=>{
-          return <option value={el.code}>{el.name}</option>
+        props.COUNTRIES.map((el,index)=>{
+          return <option value={index}>{el.name}</option>
         })
         }
         </select>
@@ -61,5 +61,5 @@ function FirstPage(props) {
     </div>
   );
 }
-
+/* style={{pointerEvents : 'none'}}*/ 
 export default FirstPage;
