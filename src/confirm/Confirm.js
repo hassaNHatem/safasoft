@@ -6,7 +6,7 @@ function Confirm() {
     <div className="confirm">
       <h2>You're all set. Ready?</h2>
    <div className='confirm-content'>
-        <h4>We Will send a message for this e-mail</h4>
+        <h4>We will send a message for this e-mail</h4>
         <h6>example@example.com</h6>
    </div>
    <div className='btns'>
