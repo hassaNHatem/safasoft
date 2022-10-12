@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './scnd.css';
 import PhoneInput from 'react-phone-number-input';
 import { isValidPhoneNumber } from 'react-phone-number-input'
@@ -7,7 +7,16 @@ import validator from 'validator';
 function ScndPage(props) {
   let validphone = isValidPhoneNumber(props.comanyPhone1)
   let validphone2 = isValidPhoneNumber(props.comanyPhone2)
-
+  const navigate = useNavigate()
+  const allinputsValid = ()=>{
+    let valid = false
+    if(props.companyName!=='' && props.address!==''&& validphone &&validphone2 &&validator.isEmail(props.businessmail)&&props.companyCountry!==''&&props.city!==''){
+      valid = true
+    }else{
+      valid = false
+    }
+    return valid
+  }
   return (
     <div className="scnd">
    <h2>Verify your company</h2>
@@ -65,8 +74,17 @@ function ScndPage(props) {
     </div>
    </div>
    <div className='btns'>
-        <Link to={'/'} className="btn"><button>Back</button></Link>
-        <Link to={'/confirm'} className="btn"><button>Next</button></Link></div>
+      <button className="btn1 btn" onClick={()=>{
+        navigate('/')
+      }}>Back</button>
+        <button className="btn" onClick={()=>{
+          if(allinputsValid()){
+            navigate('/confirm')
+          }else{
+            alert('make sure all the inputs are valid before proceeding')
+          }
+        }}>Next</button>
+        </div>
     </div>
   );
 }

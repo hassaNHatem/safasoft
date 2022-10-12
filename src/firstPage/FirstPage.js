@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './first.css';
 import PhoneInput from 'react-phone-number-input';
 import { isValidPhoneNumber } from 'react-phone-number-input'
@@ -6,8 +6,10 @@ import 'react-phone-number-input/style.css';
 import {AiOutlineEyeInvisible , AiOutlineEye} from 'react-icons/ai'
 import validator from 'validator';
 function FirstPage(props) {
+
   const pass1icon = props.password1Visable?<AiOutlineEyeInvisible/>:<AiOutlineEye/>
   const pass2icon = props.password2Visable?<AiOutlineEyeInvisible/>:<AiOutlineEye/>
+  let navigate = useNavigate()
   let validphone = isValidPhoneNumber(props.personalPhone)
   const passwordvalidation=(pass1 ,pass2)=>{
     let valid = false
@@ -21,6 +23,16 @@ function FirstPage(props) {
       }
     }
     return valid
+  }
+  const allinputsvalid = ()=>{
+    let isvalid = false
+    if(passwordvalidation(props.password , props.confrimPassword)&&validphone&&validator.isEmail(props.personalMail)&&(props.name!=='')&&(props.personalCountry!=='')){
+      isvalid = true;
+    }else{
+      isvalid = false
+    }
+    console.log(passwordvalidation(props.password , props.confrimPassword) ,validphone , validator.isEmail(props.personalMail)  , (props.name!==''))
+    return isvalid
   }
   return (
     <div className="first">
@@ -57,9 +69,14 @@ function FirstPage(props) {
    <div className='input-container'> <input placeholder='Repeat your password' className={passwordvalidation(props.password , props.confrimPassword)?'':'errorinput'} value={props.confrimPassword} onChange={(e)=>props.setConfirmPassword(e.target.value)} type={props.password2Visable?'text':'password'}/><span onClick={()=>{props.setpassword2visable(!props.password2Visable)}}>{pass2icon}</span></div>
    {!passwordvalidation(props.password , props.confrimPassword)&&<span className='spanerror'>Passwords are not a match or empty fields</span>}
    </div>
-   <Link to={'/scnd'} className="btn"><button>Next</button></Link>
+   <button className='btn' onClick={()=>{
+    if(allinputsvalid()){
+      navigate('/scnd')
+    }else{
+      alert('make sure all the inputs are valid before proceeding')
+    }
+   }}>Next</button>
     </div>
   );
 }
-/* style={{pointerEvents : 'none'}}*/ 
 export default FirstPage;

@@ -72,11 +72,15 @@ display: flex;
     width: 30%;
     background-color: #FAFAFA;
 }
-.btns .btn button{
+.btns .btn{
     background-color: #1777FB;
     border: none;
     color: white;
+    cursor: pointer;
    
+}
+.btns .btn1{
+    color: #B4B3B3 !important;
 }
 .btns .btn:first-of-type button{
     background-color: #FAFAFA;
