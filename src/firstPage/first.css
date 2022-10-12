@@ -39,13 +39,16 @@
 }
 .country-phone select{
     border: 1px solid #ebe9ea;
-    width: 49%;
+    width: 100%;
     height: 67px;
     border-radius: 6px;
     padding: 25px;
 }
 .country-phone input{
     width: 49%;
+}
+.PhoneInput{
+    width: 100%;
 }
 .first .btn{
     width: 40%;
@@ -61,4 +64,28 @@
     background-color: #1777FB;
     border: none;
     color: white;
+}
+.input-container{
+    position: relative;
+}
+.input-container span{
+    position: absolute;
+    right: 1%;
+    top: 25px;
+}
+.input-container input{
+width: 100%;
+}
+.error input{
+    border:1px solid red !important;
+    
+}
+.errorinput{
+    border:1px solid red !important;
+
+}
+.spanerror{
+    text-align: left;
+    color: red;
+    width: 100%;
 }
