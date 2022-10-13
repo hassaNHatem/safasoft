@@ -10,7 +10,7 @@ function FirstPage(props) {
   const pass1icon = props.password1Visable?<AiOutlineEyeInvisible/>:<AiOutlineEye/>
   const pass2icon = props.password2Visable?<AiOutlineEyeInvisible/>:<AiOutlineEye/>
   let navigate = useNavigate()
-  let validphone = isValidPhoneNumber(props.personalPhone)
+  let validphone = isValidPhoneNumber(String(props.personalPhone))
   const passwordvalidation=(pass1 ,pass2)=>{
     let valid = false
     if(pass1===''||pass2===''){

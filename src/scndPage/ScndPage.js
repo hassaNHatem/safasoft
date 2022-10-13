@@ -1,12 +1,12 @@
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import './scnd.css';
 import PhoneInput from 'react-phone-number-input';
 import { isValidPhoneNumber } from 'react-phone-number-input'
 import 'react-phone-number-input/style.css';
 import validator from 'validator';
 function ScndPage(props) {
-  let validphone = isValidPhoneNumber(props.comanyPhone1)
-  let validphone2 = isValidPhoneNumber(props.comanyPhone2)
+  let validphone = isValidPhoneNumber(String(props.comanyPhone1))
+  let validphone2 = isValidPhoneNumber(String(props.comanyPhone2))
   const navigate = useNavigate()
   const allinputsValid = ()=>{
     let valid = false

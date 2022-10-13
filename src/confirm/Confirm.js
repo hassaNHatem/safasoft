@@ -1,7 +1,8 @@
 import './confirm.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Confirm(props) {
+  const navigate = useNavigate()
   return (
     <div className="confirm">
       <h2>You're all set. Ready?</h2>
@@ -11,7 +12,17 @@ function Confirm(props) {
    </div>
    <div className='btns'>
         <Link to={'/scnd'} className="btn"><button>Back</button></Link>
-        <Link to={'/congrats'} className="btn"><button>Confirm</button></Link></div>
+       <button className="confrim-btn" onClick={()=>{
+        props.postData().then(()=>{
+          //the navigate should only happen when the data correctly gets sent to the backend but for some reason the backend isnt responding 
+          navigate('/congrats')
+          props.clearAlldata()
+        })
+        props.clearAlldata()
+        navigate('/congrats')
+        
+       }}>Confirm</button>
+        </div>
     </div>
    
   );

@@ -3,12 +3,14 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  useNavigate,
 } from "react-router-dom";
 import FirstPage from './firstPage/FirstPage';
 import ScndPage from './scndPage/ScndPage';
 import Confirm from './confirm/Confirm';
 import Congrats from './congrats/Congrats';
 import { useState } from 'react';
+import axios from 'axios';
 function App() {
   const [name , setName] = useState('')
   const [personalMail , setPersonalMail] = useState('')
@@ -26,6 +28,47 @@ function App() {
   const [password1Visable , setpassword1visable] = useState(false)
   const [password2Visable , setpassword2visable] = useState(false)
 
+
+  const clearAlldata = ()=>{
+    setName('')
+    setPersonalMail('')
+    setPersonalCountry('')
+    setPersonalPhone('')
+    setPassword('')
+    setConfirmPassword('')
+    setCompanyName('')
+    setAdress('')
+    setBusinessMail('')
+    setCompanyCountry('')
+    setCity('')
+    setCompanyPhone1('')
+    setCompanyPhone2('')
+    setpassword1visable(false)
+    setpassword2visable(false)
+  }
+  const postData = async ()=>{
+    let payload = {
+      user_email:personalMail,
+      user_password:password,
+      user_password_confirmation:confrimPassword,
+      lang:'eng',
+      created_by:'',
+      company_name:companyName,
+      company_address:address,
+      company_phone:comanyPhone1,
+      company_business_email:businessmail,
+      company_avatar:'',
+      company_country_id:companyCountry,
+      company_city_id:city,
+      user_full_name:name,
+      user_phone:personalPhone,
+      user_position:'',
+      user_nationality:personalCountry,
+      user_status:'',
+      user_is_admin:1,
+    }
+  await axios.post('https://id.safav2.io.safavisa.com/register',payload)
+  }
   const COUNTRIES = [ 
     {"name": "Afghanistan", "code": "AF"}, 
     {"name": "land Islands", "code": "AX"}, 
@@ -102,7 +145,7 @@ function App() {
         <Routes>
       <Route path="/" element={<FirstPage name={name} setName={setName} personalMail={personalMail} setPersonalMail={setPersonalMail} personalCountry={personalCountry} setPersonalCountry={setPersonalCountry} personalPhone={personalPhone} setPersonalPhone={setPersonalPhone} password={password} setPassword={setPassword} confrimPassword={confrimPassword} setConfirmPassword={setConfirmPassword} COUNTRIES={COUNTRIES} password1Visable={password1Visable} setpassword1visable={setpassword1visable} password2Visable={password2Visable} setpassword2visable={setpassword2visable} />} />
       <Route path="/scnd" element={ <ScndPage  companyName={companyName} setCompanyName={setCompanyName} address={address} setAdress={setAdress} businessmail={businessmail} setBusinessMail={setBusinessMail} companyCountry={companyCountry}  setCompanyCountry={setCompanyCountry} city={city} setCity={setCity} comanyPhone1={comanyPhone1} setCompanyPhone1={setCompanyPhone1} comanyPhone2={comanyPhone2} setCompanyPhone2={setCompanyPhone2} COUNTRIES={COUNTRIES}/>}  />
-      <Route path="/confirm" element={ <Confirm personalMail={personalMail}/>} />
+      <Route path="/confirm" element={ <Confirm personalMail={personalMail} postData={postData} clearAlldata={clearAlldata}/>} />
       <Route path="/congrats" element={ <Congrats/>} />
       </Routes>
       </Router>

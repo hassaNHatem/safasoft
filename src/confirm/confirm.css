@@ -48,7 +48,7 @@
     border-radius: 8px;
     margin-left: 2%;
 }
-.confirm .btns .btn:first-of-type{
+.confirm .btns .btn{
     width: 30%;
     background-color: #FAFAFA;
 }
@@ -58,7 +58,19 @@
     color: white;
        
 }
-.btns .btn:first-of-type button{
+.confrim-btn{
+    width: 70%;
+    align-self: flex-end;
+    padding: 15px;
+    margin-top: 2%;
+    background-color: #1777FB;
+    border: 1px solid transparent;
+    color: white;
+    border-radius: 8px;
+    margin-left: 2%;
+
+}
+.btns .btn{
     background-color: #FAFAFA;
     color: #B4B3B3;
 }
