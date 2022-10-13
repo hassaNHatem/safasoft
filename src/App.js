@@ -11,6 +11,8 @@ import Confirm from './confirm/Confirm';
 import Congrats from './congrats/Congrats';
 import { useState } from 'react';
 import axios from 'axios';
+import { Stepper , Step } from 'react-form-stepper';
+
 function App() {
   const [name , setName] = useState('')
   const [personalMail , setPersonalMail] = useState('')
@@ -27,7 +29,8 @@ function App() {
   const [comanyPhone2 , setCompanyPhone2] = useState('')
   const [password1Visable , setpassword1visable] = useState(false)
   const [password2Visable , setpassword2visable] = useState(false)
-
+  const [activeStep , setActiveStep] = useState(0)
+  const [settper, setStepper] = useState(true)
 
   const clearAlldata = ()=>{
     setName('')
@@ -141,11 +144,16 @@ function App() {
     {"name": "Ethiopia", "code": "ET"}]
   return (
     <div className="App">
+    {settper&&  <Stepper activeStep={activeStep}>
+  <Step label="user info" />
+  <Step label="Company info" />
+  <Step label="confirmation" />
+</Stepper>}
       <Router>
         <Routes>
-      <Route path="/" element={<FirstPage name={name} setName={setName} personalMail={personalMail} setPersonalMail={setPersonalMail} personalCountry={personalCountry} setPersonalCountry={setPersonalCountry} personalPhone={personalPhone} setPersonalPhone={setPersonalPhone} password={password} setPassword={setPassword} confrimPassword={confrimPassword} setConfirmPassword={setConfirmPassword} COUNTRIES={COUNTRIES} password1Visable={password1Visable} setpassword1visable={setpassword1visable} password2Visable={password2Visable} setpassword2visable={setpassword2visable} />} />
-      <Route path="/scnd" element={ <ScndPage  companyName={companyName} setCompanyName={setCompanyName} address={address} setAdress={setAdress} businessmail={businessmail} setBusinessMail={setBusinessMail} companyCountry={companyCountry}  setCompanyCountry={setCompanyCountry} city={city} setCity={setCity} comanyPhone1={comanyPhone1} setCompanyPhone1={setCompanyPhone1} comanyPhone2={comanyPhone2} setCompanyPhone2={setCompanyPhone2} COUNTRIES={COUNTRIES}/>}  />
-      <Route path="/confirm" element={ <Confirm personalMail={personalMail} postData={postData} clearAlldata={clearAlldata}/>} />
+      <Route path="/" element={<FirstPage setActiveStep={setActiveStep} name={name} setName={setName} personalMail={personalMail} setPersonalMail={setPersonalMail} personalCountry={personalCountry} setPersonalCountry={setPersonalCountry} personalPhone={personalPhone} setPersonalPhone={setPersonalPhone} password={password} setPassword={setPassword} confrimPassword={confrimPassword} setConfirmPassword={setConfirmPassword} COUNTRIES={COUNTRIES} password1Visable={password1Visable} setpassword1visable={setpassword1visable} password2Visable={password2Visable} setpassword2visable={setpassword2visable} />} />
+      <Route path="/scnd" element={ <ScndPage setActiveStep={setActiveStep}  companyName={companyName} setCompanyName={setCompanyName} address={address} setAdress={setAdress} businessmail={businessmail} setBusinessMail={setBusinessMail} companyCountry={companyCountry}  setCompanyCountry={setCompanyCountry} city={city} setCity={setCity} comanyPhone1={comanyPhone1} setCompanyPhone1={setCompanyPhone1} comanyPhone2={comanyPhone2} setCompanyPhone2={setCompanyPhone2} COUNTRIES={COUNTRIES}/>}  />
+      <Route path="/confirm" element={ <Confirm setStepper={setStepper} setActiveStep={setActiveStep} personalMail={personalMail} postData={postData} clearAlldata={clearAlldata}/>} />
       <Route path="/congrats" element={ <Congrats/>} />
       </Routes>
       </Router>

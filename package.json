@@ -9,6 +9,7 @@
     "axios": "^1.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-form-stepper": "^2.0.3",
     "react-icons": "^4.4.0",
     "react-phone-number-input": "^3.2.11",
     "react-router": "^6.4.2",

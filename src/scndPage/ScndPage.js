@@ -79,6 +79,7 @@ function ScndPage(props) {
       }}>Back</button>
         <button className="btn" onClick={()=>{
           if(allinputsValid()){
+            props.setActiveStep(2)
             navigate('/confirm')
           }else{
             alert('make sure all the inputs are valid before proceeding')

@@ -17,10 +17,16 @@ function Confirm(props) {
           //the navigate should only happen when the data correctly gets sent to the backend but for some reason the backend isnt responding 
           navigate('/congrats')
           props.clearAlldata()
+          props.setActiveStep(0)
+
         })
+        //these 3 functions should only be called inside the then 
         props.clearAlldata()
+        props.setActiveStep(0)
+        props.setStepper(false)
         navigate('/congrats')
-        
+
+
        }}>Confirm</button>
         </div>
     </div>

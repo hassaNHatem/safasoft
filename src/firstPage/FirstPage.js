@@ -72,6 +72,7 @@ function FirstPage(props) {
    <button className='btn' onClick={()=>{
     if(allinputsvalid()){
       navigate('/scnd')
+      props.setActiveStep(1)
     }else{
       alert('make sure all the inputs are valid before proceeding')
     }
