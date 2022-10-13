@@ -76,6 +76,7 @@ function ScndPage(props) {
    <div className='btns'>
       <button className="btn1 btn" onClick={()=>{
         navigate('/')
+        props.setActiveStep(0)
       }}>Back</button>
         <button className="btn" onClick={()=>{
           if(allinputsValid()){

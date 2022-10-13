@@ -11,7 +11,9 @@ function Confirm(props) {
         <h6>{props.personalMail}</h6>
    </div>
    <div className='btns'>
-        <Link to={'/scnd'} className="btn"><button>Back</button></Link>
+        <Link to={'/scnd'} onClick={()=>{
+            props.setActiveStep(1)
+        }} className="btn"><button>Back</button></Link>
        <button className="confrim-btn" onClick={()=>{
         props.postData().then(()=>{
           //the navigate should only happen when the data correctly gets sent to the backend but for some reason the backend isnt responding 
